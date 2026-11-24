@@ -1,0 +1,6 @@
+ID     | Command line                                                            | Date and time    | Action(s)      | Altered
+------------------------------------------------------------------------------------------------------------------------------
+     4 | install -y nginx libcap-ng-utils                                        | 2026-11-24 21:13 | Install        |    5   
+     3 | upgrade -y                                                              | 2026-11-24 21:08 | I, O, U        |  430 E<
+     2 | remove -y --setopt=metadata_expire=-1 open-vm-tools spice-vdagent       | 2026-10-24 10:46 | Removed        |    2 >E
+     1 |                                                                         | 2026-10-24 10:37 | Install        | 1958 EE
