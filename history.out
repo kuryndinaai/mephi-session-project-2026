@@ -1,0 +1,311 @@
+    1  pwd
+    2  ls
+    3  ls -la
+    4  pwd
+    5  cd /documents
+    6  cd /Documents
+    7  man cd
+    8  whoami
+    9  id
+   10  gtent group wheel
+   11  getent group wheel
+   12  sudo groupadd students
+   13  getent group students
+   14  sudo useadd -u 1234 user1
+   15  sudo useradd -u 1234 user1
+   16  sudo usermod -G students user1
+   17  id user1
+   18  groups user1
+   19  sudo passwd user1
+   20  sudo chage -M 90 user1
+   21  sudo chage -l user1
+   22  sudo chage -l sfuser
+   23  find /etc -name "*.conf"
+   24  sudo find ... -perm -4000
+   25  sudo find / -perm -4000
+   26  sudo find / -type f -perm -4000
+   27  sudo find / -type f -perm -4000 -print 2>/dev/null
+   28  ls -l /usr/bin/passwd
+   29  sudo ps -e -o pid,ruid,euid,user,ruser,command
+   30  sudo ps -e -o pid,ruid,euid,user,ruser,command | awk '$2 != 0 && $3 == 0'
+   31  ls -l /etc/shadow
+   32  cat /etc/shadow
+   33  sudo cat /etc/shadow
+   34  which cat
+   35  pwd
+   36  cp /user/bin/cat ~/cat
+   37  sudo cp /usr/bin/cat ~/cat
+   38  ls -l
+   39  ~/cat /etc/shadow
+   40  sudo chown root:root ~/cat
+   41  ls -l
+   42  ls -l ~/cat
+   43  sudo chmod u+s ~/cat
+   44  ls -l ~/cat
+   45  ~/cat /etc/shadow
+   46  stat ~/cat
+   47  touch ~/test_chown
+   48  ls -l ~/test_chown
+   49  which chown
+   50  cp /usr/bin/chown ~/chown
+   51  ls -l
+   52  which setcap
+   53  sudo setcap cap_chown+ep ~/chown
+   54  getcap ~/chown
+   55  ~/chown root:root ~/test_chown
+   56  ls -l ~/test_chown
+   57  ls -l
+   58  sudo setcap -r ~/chown
+   59  which timedatectl
+   60  su - user1
+   61  sudo visudo -f /etc/sudoers.d/user1-time
+   62  sudo -l -U user1
+   63  su - user1
+   64  sudo timedatectl set-ntp true
+   65  date
+   66  history > ~/history.out
+   67  stat /home/user1 > ~/stat.out
+   68  ls -l /home/user1/cat /home/user1/chown
+   69  sudo ls -l /home/user1/cat /home/user1/chown
+   70  sudo ls -l /home/sfuser/cat /home/user1/chown
+   71  ls -l
+   72  sudo stat /home/user1 > ~/stat.out
+   73  stat /home/sfuser/cat >> ~/stat.out
+   74  stat /home/sfuser/chown >> ~/stat.out
+   75  getcap /home/sfuser/chown > ~/getcap.out
+   76  cat ~/stat.out
+   77  ls -l
+   78  sudo ps -e -o pid,ruid,euid,user,ruser,command | awk '$2 != 0 && $3 == 0' > ~/processes.out
+   79  cat ~/processes.out
+   80  ls -l /home/sfuser/cat /home/sfuser/chown > ~/files.out
+   81  ls -l
+   82  sudo find / -type f -perm -4000 -print 2>/dev/null > ~/setuid.out
+   83  git --version
+   84  ls -l
+   85  git clone https://github.com/kuryndinaai/mephi-linux-security-2026.git
+   86  ls -l
+   87  cd ~/mephi-linux-security-2026/
+   88  ls
+   89  cp ~/history.out .
+   90  cp ~/stat.out .
+   91  cp ~/getcap.out .
+   92  cp ~/setuid.out .
+   93  cp ~/processes.out .
+   94  cp ~/files.out .
+   95  ls -l
+   96  git add history.out stat.out getcap.out setuid.out processes.out files.out
+   97  git status
+   98  git commit -m "Add Linux security lab results"
+   99  git config --global user.name "kuryndinaai"
+  100  git config --global user.email "herrlovegun@gmail.com"
+  101  git config --global user.name
+  102  git config --global user.email
+  103  git status
+  104  git commit -m "Add Linux security lab results"
+  105  git status
+  106  git push origin main
+  107  lsblk -f
+  108  sudo fdisk -l
+  109  sudo fdisk /dev/sdb
+  110  lsblk -f
+  111  sudo fdisk /dev/sdb
+  112  sudo mkfs.ext4 -L MEPHI_WEB /dev/sdb1
+  113  lsblk -f
+  114  sudo mkdir /mephi-web
+  115  ls -ld /mephi-web
+  116  cat /etc/fstab
+  117  echo 'LABEL=MEPHI_WEB /mephi-web ext4 defaults 0 2' | sudo tee -a /etc/fstab
+  118  tail -5 /etc/fstab
+  119  sudo systemctl daemon-reload
+  120  sudo mount -a
+  121  findmnt /mephi-web
+  122  df -h /mephi-web
+  123  lsblk -f
+  124  cp /etc/fstab ~/mephi-session-project-2026/fstab
+  125  cd ~/mephi-session-project-2026
+  126  git add fstab
+  127  git commit -m "complete section 3"
+  128  git push
+  129  rpm -q nginx
+  130  sudo systemctl status nginx
+  131  sudo systemctl start nginx
+  132  sudo systemctl status nginx
+  133  sudo systemctl enable nginx
+  134  sudo systemctl is-enabled nginx
+  135  journalctl -u nginx -b > ~/journalctl.out
+  136  cat ~/journalctl.out
+  137  cp ~/journalctl.out ~/mephi-session-project-2026/
+  138  git status
+  139  git add journalctl.out
+  140  git commit -m "complete section 4"
+  141  git push
+  142  sudo mkdir -p /data/mephi-2026
+  143  ls -ld /data/mephi-2026
+  144  sudo useradd -u 5501 user1
+  145  sudo useradd -u 5501 user11
+  146  sudo useradd -u 5502 user2
+  147  sudo useradd -u 5503 user3
+  148  id user11
+  149  id user2
+  150  id user3
+  151  sudo groupadd -g 4444 curators
+  152  getent group curators
+  153  sudo useradd curator1
+  154  sudo useradd curator2
+  155  sudo usermod -aG curators curator1
+  156  sudo usermod -aG curators curator2
+  157  id curator1
+  158  id curator2
+  159  id user1
+  160  sudo groupadd -g 5500 developers
+  161  getent group developers
+  162  sudo usermod -aG developers user11
+  163  sudo usermod -aG developers user2
+  164  sudo usermod -aG developers user3
+  165  id user11
+  166  id user2
+  167  sudo chown root:developers /data/mephi-2026
+  168  ls -ld /data/mephi-2026
+  169  sudo chmod 2770 /data/mephi-2026
+  170  sudo setfacl -m g:developers:rwx,g:curators:rx,o::--- /data/mephi-2026
+  171  sudo setfacl -d -m g:developers:rwx,g:curators:rx,o::--- /data/mephi-2026
+  172  getfacl /data/mephi-2026
+  173  ls -ld /data/mephi-2026
+  174  sudo -u user11 touch /data/mephi-2026/test.txt
+  175  ls -l /data/mephi-2026/test.txt
+  176  sudo ls -l /data/mephi-2026/test.txt
+  177  sudo getfacl /data/mephi-2026/test.txt
+  178  sudo -u user11 sh -c 'echo "developer test" >> /data/mephi-2026/test.txt'
+  179  cat /data/mephi-2026/test.txt
+  180  sudo cat /data/mephi-2026/test.txt
+  181  sudo -u curator1 cat /data/mephi-2026/test.txt
+  182  sudo -u curator1 sh -c 'echo "curator test" >> /data/mephi-2026/test.txt'
+  183  sudo -u sfuser cat /data/mephi-2026/test.txt
+  184  ls -l /data/mephi-2026/test.txt
+  185  sudo ls -l /data/mephi-2026/test.txt
+  186  sudo getfacl /data/mephi-2026/test.txt
+  187  getcap /usr/sbin/tcpdump
+  188  sudo setcap cap_net_raw,cap_net_admin=eip /usr/sbin/tcpdump
+  189  getcap /usr/sbin/tcpdump
+  190  sudo -u user11 tcpdump -D
+  191  getcap /usr/sbin/tcpdump > ~/getcap.out
+  192  cp ~/getcap.out ~/mephi-session-project-2026/
+  193  stat /data/mephi-2026 > ~/stat.out
+  194  cp ~/stat.out ~/mephi-session-project-2026/
+  195  cd ~/mephi-session-project-2026
+  196  git status
+  197  git add getcap.out stat.out
+  198  git commit -m "complete section 5.1 and 5.2"
+  199  git push
+  200  getenforce
+  201  ls -Zd /mephi-web
+  202  which semanage
+  203  sudo semanage fcontext -a -t httpd_sys_content_t '/mephi-web(/.*)?'
+  204  sudo restorecon -Rv /mephi-web
+  205  ls -Zd /mephi-web
+  206  grep -Rni '^[[:space:]]*root ' /etc/nginx/
+  207  sudo cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bak
+  208  sudo sed -i 's#root /usr/share/nginx/html;#root /mephi-web;#' /etc/nginx/nginx.conf
+  209  grep -n 'root ' /etc/nginx/nginx.conf
+  210  sudo nginx -t
+  211  sudo systemctl restart nginx
+  212  sudo systemctl status nginx --no-pager
+  213  sudo semanage fcontext -l | grep '/mephi-web'
+  214  sudo sh -c 'echo "<h1>MEPHI-2026 Secure Linux Lab</h1>" > /mephi-web/index.html'
+  215  sudo ls -l /mephi-web/
+  216  sudo cat /mephi-web/index.html
+  217  ls -Z /mephi-web/index.html
+  218  curl http://localhost/
+  219  sudo ls -lah /mephi-web/
+  220  sudo find /mephi-web -maxdepth 2 -type f -printf '%p\n'
+  221  curl -I http://localhost/
+  222  sudo nginx -T 2>/dev/null | grep -nE 'root |server_name|listen '
+  223  sudo sed -n '35,48p' /etc/nginx/nginx.conf
+  224  sudo ls -lah /usr/share/nginx/html/
+  225  sudo sed -i 's|root[[:space:]]*/usr/share/nginx/html;|root /mephi-web;|' /etc/nginx/nginx.conf
+  226  grep -n 'root ' /etc/nginx/nginx.conf
+  227  sudo nginx -t
+  228  sudo systemctl restart nginx
+  229  sudo systemctl status nginx --no-pager
+  230  curl http://localhost/
+  231  ls -Z /mephi-web/index.html
+  232  sudo cp /etc/nginx/nginx.conf ~/mephi-session-project-2026/nginx.conf
+  233  cd ~/mephi-session-project-2026
+  234  git status
+  235  git diff -- nginx.conf
+  236  sudo cp /mephi-web/index.html ~/mephi-session-project-2026/index.html
+  237  git status
+  238  git add nginx.conf index.html
+  239  git commit -m "configure nginx web root"
+  240  git push
+  241  sudo passwd -S curator1
+  242  sudo passwd -S curator2
+  243  sudo passwd -S user11
+  244  getent passwd curator1 curator2 user11
+  245  sudo usermod -s /sbin/nologin curator1
+  246  sudo usermod -s /sbin/nologin curator2
+  247  getent passwd curator1 curator2 user11
+  248  sudo grep -nE '^\s*minlen' /etc/security/pwquality.conf
+  249  sudo sed -i 's/^[[:space:]]*minlen.*/minlen = 12/' /etc/security/pwquality.conf
+  250  sudo chage -M 90 user11
+  251  sudo chage -l user11
+  252  udo chage -M 90 curator1
+  253  sudo chage -M 90 curator1
+  254  sudo chage -M 90 curator2
+  255  sudo chage -l user11
+  256  sudo chage -l curator1
+  257  sudo chage -l curator2
+  258  sudo grep -nE '^[[:space:]]*minlen' /etc/security/pwquality.conf
+  259  sudo grep -n 'minlen' /etc/security/pwquality.conf
+  260  echo 'minlen = 12' | sudo tee -a /etc/security/pwquality.conf
+  261  sudo grep -nE '^[[:space:]]*minlen' /etc/security/pwquality.conf
+  262  {   echo "===== USER ACCOUNTS =====";   getent passwd curator1 curator2 user11;    echo;   echo "===== PASSWORD STATUS =====";   sudo passwd -S curator1;   sudo passwd -S curator2;   sudo passwd -S user11;    echo;   echo "===== PASSWORD AGING =====";   sudo chage -l curator1;   sudo chage -l curator2;   sudo chage -l user11;    echo;   echo "===== PASSWORD QUALITY =====";   sudo grep -nE '^[[:space:]]*minlen' /etc/security/pwquality.conf;    echo;   echo "===== GROUPS =====";   id user11;   id user2;   id user3;   id curator1;   id curator2;    echo;   echo "===== DATA DIRECTORY =====";   ls -ld /data/mephi-2026;   sudo getfacl /data/mephi-2026;    echo;   echo "===== TEST FILE =====";   sudo ls -l /data/mephi-2026/test.txt;   sudo getfacl /data/mephi-2026/test.txt;    echo;   echo "===== NGINX / SELINUX =====";   sudo systemctl is-enabled nginx;   sudo systemctl is-active nginx;   ls -Zd /mephi-web;   sudo semanage fcontext -l | grep '/mephi-web'; } > ~/section-report.out
+  263  cat ~/section-report.out
+  264  sudo passwd -S curator1
+  265  sudo chage -l curator1
+  266  {   echo "===== PASSWORD STATUS =====";   sudo passwd -S curator1;   sudo passwd -S curator2;   sudo passwd -S user11; } > ~/password-status.out
+  267  {   echo "===== PASSWORD AGING =====";   sudo chage -l curator1;   sudo chage -l curator2;   sudo chage -l user11; } > ~/password-aging.out
+  268  cat ~/password-status.out
+  269  rm -f ~/section-report.out
+  270  echo "=== PASSWORD POLICY ===" > ~/section-report.out
+  271  sudo passwd -S curator1 | tee -a ~/section-report.out
+  272  sudo passwd -S curator2 | tee -a ~/section-report.out
+  273  sudo passwd -S user11 | tee -a ~/section-report.out
+  274  echo "=== PASSWORD AGING ===" | tee -a ~/section-report.out
+  275  sudo chage -l curator1 | tee -a ~/section-report.out
+  276  sudo chage -l curator2 | tee -a ~/section-report.out
+  277  sudo chage -l user11 | tee -a ~/section-report.out
+  278  echo "=== PASSWORD QUALITY ===" | tee -a ~/section-report.out
+  279  sudo grep -nE '^[[:space:]]*minlen' /etc/security/pwquality.conf | tee -a ~/section-report.out
+  280  cat ~/section-report.out
+  281  cp ~/section-report.out ~/mephi-session-project-2026/
+  282  git status
+  283  git add section-report.out
+  284  git commit -m "complete password policy section"
+  285  git push
+  286  git status
+  287  git remote -v
+  288  sudo tee /mephi-web/index.html > /dev/null <<'EOF'
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MEPHI-2026</title>
+</head>
+<body>
+    <h1>Hello from Student: M265259</h1>
+</body>
+</html>
+EOF
+
+  289  sudo restorecon -v /mephi-web/index.html
+  290  sudo nginx -t
+  291  sudo systemctl restart nginx
+  292  curl http://localhost/
+  293  curl http://localhost/ > ~/curl.out
+  294  getenforce > ~/getenforce.out
+  295  sudo cp /etc/passwd .
+  296  sudo cp /etc/shadow .
+  297  sudo cp /etc/group .
+  298  sudo cp /etc/security/pwquality.conf .
+  299  history > ~/history.out
