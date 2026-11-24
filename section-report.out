@@ -1,0 +1,28 @@
+=== PASSWORD POLICY ===
+curator1 LK 2026-11-24 0 90 7 -1 (Password locked.)
+curator2 LK 2026-11-24 0 90 7 -1 (Password locked.)
+user11 LK 2026-11-24 0 90 7 -1 (Password locked.)
+=== PASSWORD AGING ===
+Last password change					: Nov 24, 2026
+Password expires					: Feb 22, 2027
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 7
+Last password change					: Nov 24, 2026
+Password expires					: Feb 22, 2027
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 7
+Last password change					: Nov 24, 2026
+Password expires					: Feb 22, 2027
+Password inactive					: never
+Account expires						: never
+Minimum number of days between password change		: 0
+Maximum number of days between password change		: 90
+Number of days of warning before password expires	: 7
+=== PASSWORD QUALITY ===
+80:minlen = 12
